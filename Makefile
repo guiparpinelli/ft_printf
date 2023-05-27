@@ -6,7 +6,7 @@
 #    By: gparpine <gparpine@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/05 17:40:35 by gparpine          #+#    #+#              #
-#    Updated: 2023/05/25 18:41:27 by gparpine         ###   ########.fr        #
+#    Updated: 2023/05/27 09:40:36 by gparpine         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,21 +19,21 @@ OBJS 	= ${SRCS:.c=.o}
 
 CC	= cc
 RM	= /bin/rm -f
-CFLAGS	= -Wall -Wextra -Werror -I*.h
-
-LIB	= ar -rc
-RL 	= ar -s
-
-${NAME}: ${OBJS}
-	${LIB} ${NAME} ${OBJS}
-	${RL} ${NAME}
+CFLAGS	= -Wall -Wextra -Werror -I./includes/
 
 all: ${NAME}
 
+${NAME}: ${OBJS}
+	$(MAKE) -C ./libft
+	cp libft/libft.a $(NAME)
+	ar rc ${NAME} ${OBJS}
+
 clean:
+	$(MAKE) clean -C ./libft
 	${RM} ${OBJS}
 
 fclean: clean
+	$(MAKE) fclean -C ./libft
 	${RM} ${NAME}
 
 re: fclean all
