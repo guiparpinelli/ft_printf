@@ -6,7 +6,7 @@
 #    By: gparpine <gparpine@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/05 17:40:35 by gparpine          #+#    #+#              #
-#    Updated: 2023/05/27 09:40:36 by gparpine         ###   ########.fr        #
+#    Updated: 2023/05/27 19:22:10 by gparpine         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 
 NAME	=  libftprintf.a
 
-SRCS 	= ft_printf.c ft_printf_utils.c
+SRCS 	= ft_printf.c src/print_hex.c src/print_nbr.c src/print_ptr.c src/print_str.c src/print_unbr.c
 OBJS 	= ${SRCS:.c=.o}
 
 CC	= cc
@@ -39,10 +39,7 @@ fclean: clean
 re: fclean all
 
 norm:
-	norminette -R CheckForbiddenSourceHeader *.c
-	norminette -R CheckDefine *.h
-
-main: $(NAME) main.o
-	$(CC) $(CFLAGS) -o $@ main.o -L. -lftprintf
+	norminette -R CheckForbiddenSourceHeader **/*.c
+	norminette -R CheckDefine **/*.h
 
 .PHONY: all re clean fclean norm

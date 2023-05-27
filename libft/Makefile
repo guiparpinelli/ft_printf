@@ -6,7 +6,7 @@
 #    By: gparpine <gparpine@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/18 20:47:04 by gparpine          #+#    #+#              #
-#    Updated: 2023/05/04 16:40:11 by gparpine         ###   ########.fr        #
+#    Updated: 2023/05/27 16:20:35 by gparpine         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,7 +62,7 @@ BONUS_O = ${BONUS:.c=.o}
 OBJS	= ${SRCS_O} ${BONUS_O}
 
 CC		= cc
-CFLAGS	= -Wall -Wextra -Werror -I*.h
+CFLAGS	= -Wall -Wextra -Werror -I../includes/
 RM		= /bin/rm -f
 
 AR		= ar -rc
